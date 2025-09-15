@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ReceitaService } from '../receita';
 
 @Component({
@@ -54,7 +55,8 @@ export class ReceitaList implements OnInit {
   ];
 
   constructor(
-    private readonly service: ReceitaService
+    private readonly service: ReceitaService,
+    private readonly router: Router
   ) {}
 
   ngOnInit(): void {
@@ -66,6 +68,8 @@ export class ReceitaList implements OnInit {
     item['open'] = !item['open'];
   }
 
-  novo() {}
+  novo() {
+    this.router.navigate(['/receita', 'new']);
+  }
 
 }
