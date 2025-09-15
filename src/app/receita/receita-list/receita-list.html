@@ -1,0 +1,41 @@
+<div class="context">
+  <main>
+    <span></span>
+    <h2>Receitas</h2>
+    <button (click)="novo()">Novo</button>
+  </main>
+  <section>
+    <div>
+      <span class="header">
+        <span>Nome</span>
+        <span>Tempo de Preparo</span>
+        <span>Custo Aproximado R$</span>
+        <span></span>
+      </span>
+
+      @for (item of receitas; track $index) {
+        <span class="content">
+          <span>{{ item.nome }}</span>
+          <span>{{ item.custoAproximado }}</span>
+          <span>R${{ item.tempoPreparo }}</span>
+          <span>
+            <button type="button" (click)="toggleIngrediente(item)">Ver Ingredientes</button>
+          </span>
+        </span>
+
+        @if (item.open) {
+          <span class="ingrediente">
+
+            @for (ingrediente of item.ingredientes; track $index) {
+              <span>{{ $index + 1 }} - {{ ingrediente.nome }}</span>
+            }
+
+          </span>
+        }
+      }
+    </div>
+  </section>
+  <footer>
+    <p>Todos os direitos reservados.</p>
+  </footer>
+</div>
