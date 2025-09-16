@@ -31,15 +31,15 @@ export class ReceitaForm implements OnInit {
       custoAproximado: [''],
       ingredientes: this.builder.array([
         {
-          id: 'teste',
+          id: '1',
           nome: 'Jean',
         },
         {
-          id: 'teste',
+          id: '2',
           nome: 'teste',
         },
         {
-          id: 'teste',
+          id: '3',
           nome: 'teste',
         },
       ]),
@@ -110,7 +110,7 @@ export class ReceitaForm implements OnInit {
         const index = this.findIndexIngredient(id);
 
         if (index !== -1) {
-          (this.form.get('ingredientes') as FormArray).at(index).patchValue(this.ingredientForm);
+          (this.form.get('ingredientes') as FormArray).at(index).patchValue({ ...this.ingredientForm.value});
         }
 
         this.ingredientForm.reset();
@@ -123,7 +123,7 @@ export class ReceitaForm implements OnInit {
     const index = this.findIndexIngredient(id);
 
     if (index !== -1) {
-      (this.form.get('ingredientes') as FormArray).at(index).patchValue(this.ingredientForm);
+      (this.form.get('ingredientes') as FormArray).at(index).patchValue({ ...this.ingredientForm.value});
     }
 
     this.ingredientForm.reset();
@@ -161,7 +161,7 @@ export class ReceitaForm implements OnInit {
   }
 
   private addIngredientInIngredientes() {
-    (this.form.get('ingredientes') as FormArray).push(this.ingredientForm);
+    (this.form.get('ingredientes') as FormArray).push({ ...this.ingredientForm.value});
   }
 
   private isEdit() {
