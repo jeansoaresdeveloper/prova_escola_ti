@@ -30,17 +30,20 @@
       <span class="header">
         <p>Ingredientes</p>
         <span>
+          <button (click)="criarIngrediente()">Criar</button>
           <button (click)="openIngredientes()">Ver</button>
         </span>
       </span>
 
-      @if (true) {
+      @if (showIngredientes) {
       <span class="content">
         @for (ingrediente of this.form.get('ingredientes')?.value || []; track $index) {
-        <span>{{ $index }} - {{ ingrediente.nome }}</span>
-        <span>
-          <button type="button" (click)="editarIngrediente()">Editar</button>
-          <button type="button" (click)="deletarIngrediente()">Deletar</button>
+        <span class="item">
+          <span>{{ $index + 1 }} - {{ ingrediente.nome }}</span>
+          <span>
+            <button type="button" (click)="editarIngrediente(ingrediente)">Editar</button>
+            <button type="button" (click)="deletarIngrediente(ingrediente.id)" class="cancelar">Deletar</button>
+          </span>
         </span>
         }
       </span>
@@ -49,7 +52,7 @@
 
     <div class="buttons">
       <button (click)="back()" class="cancelar">Cancelar</button>
-      <button (click)="save()" [disabled]="true">Salvar</button>
+      <button (click)="save()" [disabled]="this.form.invalid">Salvar</button>
     </div>
   </section>
   <footer>
@@ -57,12 +60,24 @@
   </footer>
 </div>
 
+@if (showModal) {
 <div class="modal">
   <div class="content">
     <header>Ingrediente</header>
 
-    <main></main>
+    <main>
+      <form [formGroup]="ingredientForm">
+        <span>
+          <label>Nome</label>
+          <input formControlName="nome" />
+        </span>
+      </form>
+    </main>
 
-    <footer></footer>
+    <footer>
+      <button type="button" (click)="toggleModal()" class="cancelar">Cancelar</button>
+      <button type="button" (click)="salvarIngrediente()">Salvar</button>
+    </footer>
   </div>
 </div>
+}

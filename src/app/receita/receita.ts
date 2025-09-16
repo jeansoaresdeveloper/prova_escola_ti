@@ -12,21 +12,17 @@ export class ReceitaService {
     private readonly client: HttpClient
   ) {}
 
-
   findAll() {
     return this.client.get<any>(this.URL);
   }
-
 
   findById(id: string) {
     return this.client.get<any>(`${this.URL}/${id}`);
   }
 
-
   create(body: any) {
     return this.client.post<any>(this.URL, body);
   }
-
 
   put(id: string) {
     return this.client.get<any>(`${this.URL}/${id}`);
@@ -36,12 +32,16 @@ export class ReceitaService {
     return this.client.delete(`${this.URL}/${id}`);
   }
 
-  addIngrediente(idReceita: any, body: any) {
-    return this.client.post<any>(`${this.URL}/${idReceita}/ingredientes`, body);
+  createIngrediente(idReceita: any, body: any) {
+    return this.client.post<any>(`${this.URL}/ingredientes`, body);
   }
 
-  removeIngrediente(idReceita: any, idIngrediente: any) {
-    return this.client.delete<any>(`${this.URL}/${idReceita}/ingredientes/${idIngrediente}`);
+  putIngrediente(id: any, body: any) {
+    return this.client.post<any>(`${this.URL}/ingredientes/${id}`, body);
+  }
+
+  deleteIngrediente(id: any) {
+    return this.client.delete<any>(`${this.URL}/ingredientes/${id}`);
   }
 
 }

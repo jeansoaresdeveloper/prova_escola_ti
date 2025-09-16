@@ -74,11 +74,17 @@
       font-weight: 500;
       border-radius: 10px;
 
-      button {
+      span {
+        display: flex;
+        gap: 10px;
+      }
+
+      span button {
         color: white;
         border-radius: 10px;
         background-color: rgb(85, 20, 20);
         padding: 5px 30px;
+        border: 0;
         cursor: pointer;
       }
     }
@@ -87,6 +93,50 @@
       padding: 20px;
       display: flex;
       flex-direction: column;
+
+      .item {
+        display: flex;
+        justify-content: space-between;
+        gap: 5px;
+        padding: 5px;
+        border-bottom: 1px solid #4d4b4b;
+
+        span {
+          display: flex;
+          gap: 10px;
+
+          button {
+            padding: 5px 20px;
+            border-radius: 5px;
+            font-weight: 400px;
+            background-color: #075a19;
+            color: white;
+            border: 0;
+            cursor: pointer;
+            background-color: #075a19;
+            border: 1px solid #075a19;
+            color: white;
+
+            &:hover {
+              background-color: white;
+              border: 1px solid #075a19;
+              color: #075a19;
+            }
+
+            &.cancelar {
+              background-color: white;
+              color: #4e2727;
+              border: 1px solid #4e2727;
+
+              &:hover {
+                background-color: #4e2727;
+                color: white;
+                border: 1px solid white;
+              }
+            }
+          }
+        }
+      }
     }
   }
 
@@ -135,5 +185,92 @@
     background-color: darkolivegreen;
     color: white;
     border-radius: 10px;
+  }
+}
+
+.modal {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba($color: #000000, $alpha: 0.5);
+
+  .content {
+    min-width: 300px;
+    min-height: 300px;
+    padding: 20px;
+    background-color: white;
+    border: 1px solid #e9e6e6;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    header {
+      padding: 10px;
+      border-bottom: 1px solid #4d4b4b;
+      text-align: center;
+    }
+
+    main {
+      min-height: 300px;
+
+      span {
+        display: flex;
+        flex-direction: column;
+
+        label {
+          margin-bottom: 2px;
+          font-size: 14px;
+          color: #4d4b4b;
+        }
+
+        input {
+          padding: 0 10px;
+          outline: 0;
+          height: 30px;
+        }
+      }
+    }
+
+    footer {
+      display: flex;
+      gap: 10px;
+      justify-content: flex-end;
+
+      button {
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-weight: 400px;
+        background-color: #075a19;
+        color: white;
+        border: 0;
+        cursor: pointer;
+        background-color: #075a19;
+        border: 1px solid #075a19;
+        color: white;
+
+        &:hover {
+          background-color: white;
+          border: 1px solid #075a19;
+          color: #075a19;
+        }
+
+        &.cancelar {
+          background-color: white;
+          color: #4e2727;
+          border: 1px solid #4e2727;
+
+          &:hover {
+            background-color: #4e2727;
+            color: white;
+            border: 1px solid white;
+          }
+        }
+      }
+    }
   }
 }
