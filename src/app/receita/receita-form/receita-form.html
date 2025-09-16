@@ -1,1 +1,68 @@
-<p>receita-form works!</p>
+<div class="context">
+  <main>
+    <button (click)="back()">Voltar</button>
+    <h2>Criar Receita</h2>
+    <span></span>
+  </main>
+  <section>
+    <div>
+      <form [formGroup]="form">
+        <div class="form">
+          <span>
+            <label>Nome</label>
+            <input formControlName="nome" />
+          </span>
+
+          <span>
+            <label>Tempo de Preparo</label>
+            <input formControlName="tempoPreparo" type="number" />
+          </span>
+
+          <span>
+            <label>Custo Aproximado</label>
+            <input formControlName="custoAproximado" type="number" />
+          </span>
+        </div>
+      </form>
+    </div>
+
+    <div class="ingredientes">
+      <span class="header">
+        <p>Ingredientes</p>
+        <span>
+          <button (click)="openIngredientes()">Ver</button>
+        </span>
+      </span>
+
+      @if (true) {
+      <span class="content">
+        @for (ingrediente of this.form.get('ingredientes')?.value || []; track $index) {
+        <span>{{ $index }} - {{ ingrediente.nome }}</span>
+        <span>
+          <button type="button" (click)="editarIngrediente()">Editar</button>
+          <button type="button" (click)="deletarIngrediente()">Deletar</button>
+        </span>
+        }
+      </span>
+      }
+    </div>
+
+    <div class="buttons">
+      <button (click)="back()" class="cancelar">Cancelar</button>
+      <button (click)="save()" [disabled]="true">Salvar</button>
+    </div>
+  </section>
+  <footer>
+    <p>Todos os direitos reservados.</p>
+  </footer>
+</div>
+
+<div class="modal">
+  <div class="content">
+    <header>Ingrediente</header>
+
+    <main></main>
+
+    <footer></footer>
+  </div>
+</div>
