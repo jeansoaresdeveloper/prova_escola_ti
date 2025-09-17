@@ -60,14 +60,32 @@
 
       button {
         padding: 10px 10px;
-        background: #815252;
-        color: white;
-        border: 0;
+        background: white;
+        color: #156d0d;
+        border: 1px solid #156d0d;
         border-radius: 20px;
         cursor: pointer;
 
         &:hover {
-          background: #4e2727;
+          background: rgb(132, 177, 132);
+        }
+      }
+
+      button.edit {
+        border: 1px solid rgb(11, 11, 95);
+        color: rgb(11, 11, 95);
+
+        &:hover {
+          background: rgb(132, 133, 177);
+        }
+      }
+
+      button.delete {
+        border: 1px solid rgb(107, 26, 26);
+        color: rgb(107, 26, 26);
+
+        &:hover {
+          background: rgb(160, 104, 104);
         }
       }
     }

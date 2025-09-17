@@ -20,7 +20,7 @@ public class ReceitaService {
     private final IngredienteRepository ingredienteRepository;
 
     public List<Receita> find() {
-        return repository.findFetch();
+        return repository.findAll();
     }
 
     public Receita findById(final Long id) {
