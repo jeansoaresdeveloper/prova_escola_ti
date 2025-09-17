@@ -13,13 +13,15 @@
         <span></span>
       </span>
 
-      @for (item of receitas; track $index) {
+      @for (item of receitas(); track $index) {
         <span class="content">
           <span>{{ item.nome }}</span>
-          <span>{{ item.custoAproximado }}</span>
-          <span>R${{ item.tempoPreparo }}</span>
-          <span>
+          <span>{{ item.tempoPreparo }}</span>
+          <span>R${{ item.custoAproximado }}</span>
+          <span class="buttons">
             <button type="button" (click)="toggleIngrediente(item)">Ver Ingredientes</button>
+            <button type="button" (click)="editar(item.id)">Editar</button>
+            <button type="button" (click)="deletar(item.id)">Deletar</button>
           </span>
         </span>
 

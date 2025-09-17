@@ -52,6 +52,12 @@
       padding: 10px 20px;
       text-align: center;
 
+      .buttons {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+      }
+
       button {
         padding: 10px 10px;
         background: #815252;

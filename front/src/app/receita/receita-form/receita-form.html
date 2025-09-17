@@ -37,12 +37,14 @@
 
       @if (showIngredientes) {
       <span class="content">
-        @for (ingrediente of this.form.get('ingredientes')?.value || []; track $index) {
+        @for (ingrediente of ingredientes(); track $index) {
         <span class="item">
           <span>{{ $index + 1 }} - {{ ingrediente.nome }}</span>
           <span>
             <button type="button" (click)="editarIngrediente(ingrediente)">Editar</button>
-            <button type="button" (click)="deletarIngrediente(ingrediente.id)" class="cancelar">Deletar</button>
+            <button type="button" (click)="deletarIngrediente(ingrediente)" class="cancelar">
+              Deletar
+            </button>
           </span>
         </span>
         }
